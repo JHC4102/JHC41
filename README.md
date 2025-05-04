@@ -6,6 +6,7 @@
 - 興趣
 - 爬蟲成果展示
 ## 爬蟲使用網站
+[點我](https://tw.stock.yahoo.com/quote/00878.TW/time-sales)
 ## 使用工具及套件
 1.github
 2.HTML
