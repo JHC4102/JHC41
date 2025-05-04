@@ -7,7 +7,7 @@
 - 爬蟲成果展示
 ## 爬蟲使用網站
 [點我](https://tw.stock.yahoo.com/quote/00878.TW/time-sales)
-![image](https://github.com/JHC4102/JHC41/commit/a3fc0e0651cd8bdedbcfec2a6e4bc0d94b48e7dd)
+![image](ex.jpg)
 
 ## 使用工具及套件
 1.github
