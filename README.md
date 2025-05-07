@@ -6,8 +6,8 @@
 - 興趣
 - 爬蟲成果展示
 ## 爬蟲使用網站
-[點我](https://tw.stock.yahoo.com/quote/00878.TW/time-sales)
-![image](ex.jpg)
+[點我](https://www.airitilibrary.com/Home/Index)
+![image](Airiti.jpg)
 
 ## 使用工具及套件
 1.github
