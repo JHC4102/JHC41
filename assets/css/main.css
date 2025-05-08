@@ -32,9 +32,13 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+#kk {
+  text-align: left; 
+  margin-left: 20px; 
+}
 
 ol, ul {
-	list-style: none;
+v	list-style: none;
 }
 
 blockquote, q {
