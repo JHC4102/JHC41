@@ -32,10 +32,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-#ints {
-  text-align: left; 
-  margin-left: 20px; 
-}
+
 
 ol, ul {
 v	list-style: none;
@@ -215,6 +212,10 @@ input, select, textarea {
 	}
 
 /* Container */
+        #ints {
+		text-align: left;
+		margin-left: 20px; 
+	}
 
 	.container {
 		margin: 0 auto;
