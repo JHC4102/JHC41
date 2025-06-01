@@ -180,8 +180,27 @@ search_box.send_keys(Keys.ENTER)
 							
 							<img src="爬蟲成果/search1.jpg" alt="" />
 
-							<p>遇到的問題</p>
-							<img src="爬蟲成果/PROB1.jpg" alt="" />
+							<p>抓取多頁及儲存資料</p>
+							<pre><code>
+# 存放所有資料的列表
+data_list = []
+# 迴圈抓多頁(此函式定義抓取三頁)
+count=0
+while count<3:
+    time.sleep(2)
+    extract_page_data()
+    try:
+        next_button = driver.find_element(By.CSS_SELECTOR,"li.page.PagedList-skipToNext a[rel='next']") 
+        if next_button.is_enabled():
+            next_button.click()
+        else:
+            break  # 已經是最後一頁
+    except (NoSuchElementException, ElementNotInteractableException):
+        break
+    count +=1
+driver.quit()
+							</code><pre>
+							
 							
 
 
