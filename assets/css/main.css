@@ -102,6 +102,15 @@ input, select, textarea {
 			-ms-transition: none !important;
 			transition: none !important;
 		}
+        pre {
+		text-align: left;
+                font-family: monospace;
+		background-color: #f4f4f4;
+		padding: 10px;
+		border-radius: 5px;
+		overflow-x: auto;
+
+            }
 
 	input, textarea, select {
 		font-family: 'Source Sans Pro', sans-serif;
