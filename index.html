@@ -154,9 +154,8 @@ def extract_page_data():
     for item in items:
         title_element = item.find_element(By.TAG_NAME, "a") 
         title = title_element.text
-        link = title_element.get_attribute("href")
-        data_list.append({"標題": title, "連結": link})
-        print(title, link)
+        data_list.append({"標題": title})
+        print(title)
 							</code></pre>
 							
 							<img src="爬蟲成果/爬蟲成果/result_2.jpg" alt="" />
