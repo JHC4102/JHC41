@@ -146,19 +146,41 @@ from selenium.common.exceptions import NoSuchElementException, ElementNotInterac
 						
 							
 							
-							<p>定義抓取一頁資料的函數 (class="ustyle_heading_H3")</p>
+							<p>定義抓取一頁資料的函數 (class="ustyle_heading_H3",span="sourceTitleName",抓取當前網頁中所有的a)</p>
 							<pre><code>
 def extract_page_data():
     time.sleep(1)
-    items = driver.find_elements(By.CSS_SELECTOR, ".ustyle_heading_H3") 
-    for item in items:
-        title_element = item.find_element(By.TAG_NAME, "a") 
-        title = title_element.text
-        data_list.append({"標題": title})
-        print(title)
+    
+    # 同時抓取標題與來源名稱元素
+    items = driver.find_elements(By.CSS_SELECTOR, ".ustyle_heading_H3")
+    sources = driver.find_elements(By.CSS_SELECTOR, "span.sourceTitleName")
+
+    for i in range(min(len(items), len(sources))):
+        try:
+            # 抓取標題
+            title_element = items[i].find_element(By.TAG_NAME, "a")
+            title = title_element.text.strip()
+        except:
+            title = "無標題"
+            
+        try:
+            # 抓取來源
+            source = sources[i].text.strip()
+        except:
+            source = "無來源"
+            
+            # 加入資料
+        data_list.append({
+            "標題": title,
+            "來源": source
+        })
+        print(f"標題：{title}")
+        print(f"來源：{source}")
+        print("-" * 50)
 							</code></pre>
 							
-							<img src="爬蟲成果/爬蟲成果/result_2.jpg" alt="" />
+							<img src="爬蟲成果/爬蟲成果/result_2.jpg" alt="" /></br>
+							<img src="爬蟲成果/source.jpg" alt="" />
 							
 							<p>開啟chrome進入網站並搜尋【梅花鹿】</p>
 							<pre><code>
@@ -215,7 +237,134 @@ import pandas as pd
 df = pd.DataFrame(data_list)
 df.to_csv(r"C:\Users\User\Downloads\411205285.csv", index=False, encoding="utf-8-sig")
 							</code></pre>
-							<img src="爬蟲成果/結果展示.jpg" alt="" />
+							<table class="table table-bordered table-hover table-condensed">
+<thead><tr><th title="Field #1">標題</th>
+<th title="Field #2">來源</th>
+</tr></thead>
+<tbody><tr>
+<td>80 kDa人類精子抗原蛋白在臺灣梅花鹿（Cervus nippon taiouanus）睪丸組織的表現及應用於梅花鹿生育控制之評估</td>
+<td>《中國畜牧學會會誌》</td>
+</tr>
+<tr>
+<td>野放梅花鹿族群對墾丁高位珊瑚礁森林之初步影響</td>
+<td>《林業研究專訊》</td>
+</tr>
+<tr>
+<td>墾丁地區台灣梅花鹿（Cervus nippon taiouanus）農損分布與防治圍欄之評估</td>
+<td>《台灣生物多樣性研究》</td>
+</tr>
+<tr>
+<td>臺灣梅花鹿的前世今生</td>
+<td>《臺灣博物季刊》</td>
+</tr>
+<tr>
+<td>畜養牡台灣梅花鹿及牡台灣水鹿之生殖性狀分析：以直腸電刺激採精法進行精液性狀評估</td>
+<td>《臺灣獸醫學雜誌》</td>
+</tr>
+<tr>
+<td>圍籬排除梅花鹿啃食對墾丁高位珊瑚礁森林樹苗群落更新的影響</td>
+<td>《台灣林業科學》</td>
+</tr>
+<tr>
+<td>墾丁國家公園台灣梅花鹿（Cervus nippon taiouanus）啃剝樹皮及其對當地林木之影響</td>
+<td>《師大生物學報》</td>
+</tr>
+<tr>
+<td>稀釋液對臺灣梅花鹿精液冷凍解凍後性狀之影響</td>
+<td>《畜產研究》</td>
+</tr>
+<tr>
+<td>臺灣梅花鹿類緣關係與族群之分子遺傳結構研究</td>
+<td>國立臺灣大學動物科學技術學系學位論文</td>
+</tr>
+<tr>
+<td>台灣梅花鹿磨角行為對墾丁高位珊瑚礁森林樹木的危害</td>
+<td>《台灣林業科學》</td>
+</tr>
+<tr>
+<td>牡臺灣梅花鹿生殖性狀之季節性變化</td>
+<td>《畜產研究》</td>
+</tr>
+<tr>
+<td>以紅外線自動相機初探馬祖大坵島臺灣梅花鹿復育族群生息現況</td>
+<td>《臺灣博物季刊》</td>
+</tr>
+<tr>
+<td>墾丁高位珊瑚礁自然保留區以電圍網防阻梅花鹿之初步成效評估</td>
+<td>《林業研究專訊》</td>
+</tr>
+<tr>
+<td>墾丁國家公園台灣梅花鹿（Cervus nippon taiouanus）磨樹及其對當地林木之影響</td>
+<td>《師大生物學報》</td>
+</tr>
+<tr>
+<td>以非侵入性檢測法評估施打GnRH節育疫苗後梅花鹿助孕素於血清及糞便中之相關性</td>
+<td>《國家公園學報》</td>
+</tr>
+<tr>
+<td>墾丁高位珊瑚礁自然保留區內皮孫木遭梅花鹿啃食環剝之因應措施</td>
+<td>《林業研究專訊》</td>
+</tr>
+<tr>
+<td>梅花鹿再引入後的空間現象：墾丁礁林與次生林的覓食棲地選擇</td>
+<td>《華岡農科學報》</td>
+</tr>
+<tr>
+<td>社頂地區台灣梅花鹿之食性初探</td>
+<td>《師大生物學報》</td>
+</tr>
+<tr>
+<td>台灣梅花鹿的採食行為及其與季節之關係</td>
+<td>《師大生物學報》</td>
+</tr>
+<tr>
+<td>Short Communication: Malignant Catarrhal Fever Associated with Caprine Herpesvirus-2 Infection in Captive Formosan Sika Deer (Cervus Nippon Taiouanus) in Taiwan</td>
+<td>《臺灣獸醫學雜誌》</td>
+</tr>
+<tr>
+<td>利用G顯帶和螢光原位雜交技術比較台灣特有鹿科動物間之核型差異</td>
+<td>中山醫學大學生物醫學科學學系碩士班學位論文</td>
+</tr>
+<tr>
+<td>梅花鹿鹿茸改善骨質疏鬆活性研究</td>
+<td>臺北醫學大學生藥學研究所學位論文</td>
+</tr>
+<tr>
+<td>梅花鹿鹿茸免疫調節之研究</td>
+<td>臺北醫學大學醫學科學研究所學位論文</td>
+</tr>
+<tr>
+<td>森林獸害－恆春熱帶植物園的鹿口求生搶救計畫</td>
+<td>《林業研究專訊》</td>
+</tr>
+<tr>
+<td>鹿仔樹</td>
+<td>《海翁台語文學》</td>
+</tr>
+<tr>
+<td>公園有鹿</td>
+<td>《海翁台語文學》</td>
+</tr>
+<tr>
+<td>以中華雙蓋蕨在墾丁的興衰枯榮，作為國家植物園方舟計畫的見證</td>
+<td>《林業研究專訊》</td>
+</tr>
+<tr>
+<td>苗栗農業特色小巨人－紅麋鹿</td>
+<td>《畜產專訊》</td>
+</tr>
+<tr>
+<td>母語</td>
+<td>《海翁台語文學》</td>
+</tr>
+<tr>
+<td>台中南勢坑遺址的生業形態：鹿科動物遺留分析</td>
+<td>國立暨南國際大學東南亞學系人類學碩士班學位論文</td>
+</tr>
+</tbody></table>
+							<a href="https://github.com/JHC4102/JHC41/blob/main/411205285.csv" >查看 CSV 檔案</a>
+  
+
 
 					
 
