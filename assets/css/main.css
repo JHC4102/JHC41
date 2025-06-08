@@ -217,6 +217,10 @@ input, select, textarea {
 	p, ul, ol, dl, table {
 		margin-bottom: 2em;
 	}
+p + pre {
+    margin-top: 0.5em; 
+}
+
 
 	br.clear {
 		clear: both;
